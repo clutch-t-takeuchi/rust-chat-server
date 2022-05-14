@@ -34,9 +34,10 @@ async fn main() {
                     }
                     result = rx.recv() => {
                         let (msg, other_addr) = result.unwrap();
+                        let custom_msg: String  = "other peopel: ".to_string() + &msg;
 
                         if addr != other_addr {
-                            _write.write_all(msg.as_bytes()).await.unwrap();
+                            _write.write_all(custom_msg.as_bytes()).await.unwrap();
                         }
                     }
                 }
